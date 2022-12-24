@@ -1,0 +1,34 @@
+:host {
+  display: flex;
+  height: var(--navbar-height, 60px);
+  align-items: center;
+  background-color: #222;
+  padding: 0 0.5rem;
+  gap: 0.5rem;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  box-shadow: 0 5px 20px #000;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.actions {
+  & > .action {
+    height: 100%;
+    // border: none;
+    // padding: 1rem;
+    // background-color: #222;
+
+    // border-left: 3px solid hsl(282, 60%, 70%);
+    // cursor: pointer;
+  }
+}
+
+.spacer {
+  flex-grow: 1;
+}

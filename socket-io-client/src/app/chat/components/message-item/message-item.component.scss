@@ -1,0 +1,90 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  &.no-username .username {
+    display: none;
+  }
+  &.me {
+    align-items: flex-end;
+  }
+
+  & .message::after {
+    content: "";
+    position: absolute;
+    border: 1rem solid transparent;
+    border-top: 1rem solid var(--current-color);
+    top: 0;
+    left: -1rem;
+    right: auto;
+    scale: 0.5 1;
+  }
+
+  &.no-username .message::after {
+    display: none;
+  }
+
+  @for $i from 1 through 5 {
+    &.no-username > .message.color#{$i} {
+      border-top: none;
+    }
+    & > .message.color#{$i}::after {
+      top: -0.5rem;
+    }
+  }
+
+  &.me .message {
+    align-items: flex-end;
+  }
+  &.me .message::after {
+    border-top: 1rem solid royalblue;
+    right: -1rem;
+    left: auto;
+  }
+
+  &.me.no-username .message::after {
+    display: none;
+  }
+
+  & .username {
+    color: #fff9;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
+
+  & .message {
+    position: relative;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    gap: 0.25rem;
+    align-items: flex-start;
+    border-top: 0.5rem solid var(--current-color);
+    background-color: #444;
+    & .message-text {
+      white-space: pre-wrap;
+      word-break: break-word;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+    }
+  }
+
+  &.me .message {
+    background-color: royalblue;
+  }
+
+  & .timestamp {
+    color: #fffa;
+    font-size: 0.7rem;
+    line-height: 0.7rem;
+  }
+}
+
+@for $i from 1 through 5 {
+  .color#{$i} {
+    --current-color: hsl(#{$i * 72}, 60%, 40%);
+  }
+}

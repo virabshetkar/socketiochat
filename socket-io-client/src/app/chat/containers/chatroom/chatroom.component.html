@@ -1,0 +1,51 @@
+<div class="messages">
+  <div class="message-container" *ngIf="updates$ | async as updates">
+    <ng-container *ngFor="let update of updates; let i = index">
+      <app-message-item
+        *ngIf="update.type === 'message'"
+        [message]="message(update)"
+        [ngClass]="{
+          'no-username':
+            i > 0 &&
+            update.sender === updates[i - 1].sender &&
+            updates[i - 1].type === 'message'
+        }"
+      ></app-message-item>
+      <app-status-item
+        *ngIf="update.type === 'status'"
+        [status]="status(update)"
+      ></app-status-item>
+    </ng-container>
+  </div>
+
+  <form
+    class="message-form"
+    (ngSubmit)="sendMessage()"
+    [formGroup]="messageForm"
+  >
+    <textarea
+      class="message-input"
+      type="text"
+      formControlName="message"
+      placeholder="Click here to message"
+    ></textarea>
+    <button
+      mat-fab
+      color="standard"
+      class="message-submit"
+      type="submit"
+      [disabled]="messageForm.invalid"
+    >
+      <mat-icon>chat</mat-icon>
+    </button>
+    <button
+      *ngIf="showBackToTop"
+      mat-mini-fab
+      color="standard"
+      class="back-to-top"
+      (click)="scrollToBottom()"
+    >
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+  </form>
+</div>

@@ -1,0 +1,21 @@
+{
+  "name": "socket-io-db",
+  "version": "1.0.0",
+  "description": "",
+  "private": "true",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^6.8.0",
+    "mysql": "^2.18.1",
+    "socket-io-models": "file:../socket-io-models"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.11.97",
+    "@types/mysql": "^2.15.21"
+  }
+}

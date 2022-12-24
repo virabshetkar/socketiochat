@@ -1,0 +1,7 @@
+<div class="username" *ngIf="message.displayName">
+  {{ message.displayName }}
+</div>
+<div class="message" [ngClass]="color">
+  <div class="message-text">{{ message.message }}</div>
+  <div class="timestamp">{{ message.timestamp | date : "shortTime" }}</div>
+</div>

@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --navbar-height: 60px;
+}
+
+@media screen and (max-height: 768px) {
+  :root {
+    --navbar-height: 56px;
+  }
+}
+
+// html {
+//   scroll-behavior: smooth;
+// }
+
+html,
+body {
+  height: 100%;
+  color-scheme: dark;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 100px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
